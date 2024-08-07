@@ -13,6 +13,8 @@ import { setSession } from 'contexts/AuthContext';
 import decrypt from 'utils/decrypt';
 import useAuth from 'hooks/useAuth';
 import { userLogin } from 'store/reducers/auth';
+import MainCard from 'components/MainCard';
+import { Grid, Typography } from '@mui/material';
 
 const LoggingIn = () => {
   const navigate = useNavigate();
@@ -29,25 +31,25 @@ const LoggingIn = () => {
       //token expire time
       const expt = new URLSearchParams(location.search).get('expt');
 
-      if (!addr) {
-        return navigate('/login-error?error=invalid-ip');
-      }
+      // if (!addr) {
+      //   return navigate('/login-error?error=invalid-ip');
+      // }
 
-      if (!token) {
-        return navigate('/login-error?error=invalid-token');
-      }
+      // if (!token) {
+      //   return navigate('/login-error?error=invalid-token');
+      // }
 
-      if (!expt) {
-        return navigate('/login-error?error=invalid-link');
-      }
+      // if (!expt) {
+      //   return navigate('/login-error?error=invalid-link');
+      // }
 
       //decrypt the ip here
       const ip = decrypt(addr);
 
-      const currentIp = await getIP();
-      if (ip !== currentIp.ip) {
-        return navigate('/login-error?error=invalid-ip');
-      }
+      // const currentIp = await getIP();
+      // if (ip !== currentIp.ip) {
+      //   return navigate('/login-error?error=invalid-ip');
+      // }
 
       //decrypt the expire time
       const expireTime = decrypt(expt);
@@ -66,7 +68,7 @@ const LoggingIn = () => {
           setUserSession(data.dealer);
           setDbUserId(data.dealer.Id);
           setSession(token);
-          setIsLoggedIn(true);
+          userLogin(token);
         }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
@@ -74,15 +76,23 @@ const LoggingIn = () => {
       }
     };
     confirmLogin();
-  }, [location, userLogin, setSession]);
+  }, [location, setSession, userLogin]);
 
   return (
-    <div className="loading-container">
-      <div className="loading-content text-center">
-        <h2>Please wait you are Logging In...</h2>
-        <span className="sr-only">Loading...</span>
-      </div>
-    </div>
+    <MainCard sx={{ height: '100vh' }}>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item>
+          <MainCard sx={{ height: '40vh', width: '40vw', marginTop: '10rem', textAlign: 'center', border: '1px solid white' }}>
+            <Typography variant="h3" color="gray">
+              Please wait you are Logging In...
+            </Typography>
+            <Typography variant="h3" color="gray">
+              Loading...
+            </Typography>
+          </MainCard>
+        </Grid>
+      </Grid>
+    </MainCard>
   );
 };
 

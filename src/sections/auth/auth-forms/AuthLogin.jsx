@@ -64,12 +64,12 @@ const AuthLogin = () => {
   const submitHandler = async (formData) => {
     const ip = await getIP();
     try {
-      await login({ email: formData.email, ip });
-      // const { data } = await login({ email: formData.email, ip });
+      // await login({ email: formData.email, ip });
+      const { data } = await login({ email: formData.email, ip });
 
-      // if (data.status == 'success') {
-      //   navigate('/confirm');
-      // }
+      if (data.status == 'success') {
+        navigate('/confirm');
+      }
     } catch (error) {
       if (error.statusCode === 422) {
         for (let { field, message } of error.data) {

@@ -45,7 +45,7 @@ const JWTContext = createContext(null);
 export const JWTProvider = ({ children }) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userSession, setUserSession] = useState(null);
   const [dbUserId, setDbUserId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -61,7 +61,7 @@ export const JWTProvider = ({ children }) => {
           serviceToken
           // && verifyToken(serviceToken)
         ) {
-          // setSession(serviceToken);
+          setSession(serviceToken);
           const { data } = await axios.get(`${baseUrl}/Dealer/profile`, {
             headers: {
               Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ export const JWTProvider = ({ children }) => {
           });
 
           if (data.data) {
-            // setIsLoggedIn(true);
+            setIsLoggedIn(true);
             setUserSession(data.data);
             setDbUserId(data.data.Id);
           }
@@ -119,7 +119,9 @@ export const JWTProvider = ({ children }) => {
   // }
 
   return (
-    <JWTContext.Provider value={{ ...auth, logout, resetPassword, updateProfile, userSession, dbUserId }}>{children}</JWTContext.Provider>
+    <JWTContext.Provider value={{ ...auth, logout, resetPassword, updateProfile, userSession, dbUserId, setIsLoggedIn }}>
+      {children}
+    </JWTContext.Provider>
   );
 };
 

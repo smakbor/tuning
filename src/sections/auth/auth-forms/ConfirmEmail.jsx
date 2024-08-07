@@ -16,6 +16,10 @@ function ConfirmEmail() {
               Please check your email for a link to log into your account.
               <span className="font-bold">You need to open the link from the email in the same browser.</span>
             </Typography>
+
+            <Link to="/auth/confirm-login?token=8b72cda3d1b87f41c5043c8074b6d9c5f5794b494c0c95c2391f99a136e1cca3">
+              <Button variant="outlined">Login</Button>
+            </Link>
           </MainCard>
         </Grid>
       </Grid>

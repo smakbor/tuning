@@ -10,16 +10,16 @@ export const authApi = api.injectEndpoints({
           method: 'POST',
           body
         };
-      },
-      async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          // console.log(data);
-          dispatch(userLogin(data));
-        } catch (error) {
-          console.log(error);
-        }
       }
+      // async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
+      //   try {
+      //     const { data } = await queryFulfilled;
+      //     // console.log(data);
+      //     dispatch(userLogin(data));
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
     }),
 
     // @RESET FORGOT PASSWORD
