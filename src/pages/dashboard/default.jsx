@@ -33,7 +33,7 @@ import avatar1 from 'assets/images/users/avatar-1.png';
 import avatar2 from 'assets/images/users/avatar-2.png';
 import avatar3 from 'assets/images/users/avatar-3.png';
 import avatar4 from 'assets/images/users/avatar-4.png';
-import PaymentAlert from 'pages/payment/PaymentAlert';
+// import PaymentAlert from 'pages/payment/PaymentAlert';
 
 // avatar style
 const avatarSX = {
@@ -77,7 +77,7 @@ const DashboardDefault = () => {
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       <Grid item xs={12}>
-        <PaymentAlert />
+        {/* <PaymentAlert /> */}
       </Grid>
       {/* row 1 */}
       <Grid item xs={12} sx={{ mb: -2.25 }}>

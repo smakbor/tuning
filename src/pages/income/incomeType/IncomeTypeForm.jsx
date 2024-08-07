@@ -9,7 +9,6 @@ import { useAddEmployeeMutation, useGetEmployeeQuery } from 'api/service/employe
 import useAuth from 'hooks/useAuth';
 import useDialog from 'components/custom/hooks/useDialog';
 import { convertToLabel } from 'utils/form-label-converter';
-import EmployeeForm from 'pages/staff/employee/EmployeeForm';
 
 const IncomeTypeFrom = ({
   createIncomeType,
@@ -165,19 +164,6 @@ const IncomeTypeFrom = ({
           setError,
           handleSubmit,
           column: { xs: 1, sm: 1, md: 1, lg: 1 }
-        }}
-      />
-
-      {/* employee dialog form   */}
-      <EmployeeForm
-        {...{
-          createEmployeeHandler,
-          handleCloseDialog: handleEmployeeDialogClose,
-          defaultValues: DEFAULT_VALUES,
-          isLoading: addEmployeeLoading,
-          formType: 'dialog',
-          dialogSize: 'lg',
-          openDialog: employeeDialogOpen
         }}
       />
     </Box>

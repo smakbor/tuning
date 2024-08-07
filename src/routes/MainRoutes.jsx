@@ -72,11 +72,7 @@ const MuiTableCollapse = Loadable(lazy(() => import('pages/tables/mui-table/coll
 // const Permission = Loadable(lazy(() => import('pages/staff/employee/employee-profile/Permission')));
 // const EmployeeInformation = Loadable(lazy(() => import('pages/staff/employee/employee-profile/EmployeInformation')));
 
-const ResellerCollection = Loadable(lazy(() => import('pages/report/reseller-collection/ResellerCollection')));
-const BillReport = Loadable(lazy(() => import('pages/report/bill-report/BillReport')));
-const Commission = Loadable(lazy(() => import('pages/report/commission-sharing/Commission')));
-
-import { roles, routeRoles } from 'utils/constant/roles';
+import { routeRoles } from 'utils/constant/roles';
 
 // payment page
 // const Payment = Loadable(lazy(() => import('pages/payment/Payment')));
@@ -99,9 +95,6 @@ const IncomeType = Loadable(lazy(() => import('pages/income/incomeType/IncomeTyp
 
 const ProfileView = Loadable(lazy(() => import('pages/apps/profiles/ViewProfile')));
 const MediaUpload = Loadable(lazy(() => import('pages/apps/profiles/UploadFile')));
-
-// Settings
-const ActivityLog = Loadable(lazy(() => import('pages/activity-log/ActivityLog')));
 
 // branch
 // const Branch = Loadable(lazy(() => import('pages/branch/Branch')));
@@ -222,11 +215,6 @@ const MainRoutes = {
               path: 'logo',
               element: <MediaUpload />,
               roles: routeRoles.settings.logo
-            },
-            {
-              path: 'activity-logs',
-              element: <ActivityLog />,
-              roles: routeRoles.settings.activityLogs
             }
           ]
         },
