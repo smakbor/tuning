@@ -131,7 +131,7 @@
   "scripts": {
     "start": "vite --port 3005",
     "build": "vite build ",
-    "preview": "vite preview",
+    "preview": "vite preview --port 3005",
     "lint": "eslint . --ext .js,.jsx"
   },
   "eslintConfig": {
