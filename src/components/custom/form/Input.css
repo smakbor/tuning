@@ -1,0 +1,32 @@
+.react-select__control {
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #555;
+}
+
+.react-select__control:hover {
+  border-color: rgba(0, 123, 255, 0.25);
+}
+.react-select__control--is-focused {
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+.react-select__menu {
+  background-color: #d3d3d31e;
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.react-select__option {
+  background-color: transparent;
+}
+.react-select__option:hover {
+  background-color: #d3d3d31e;
+  cursor: pointer;
+}
+.react-select__input-container {
+  color: gray;
+}
