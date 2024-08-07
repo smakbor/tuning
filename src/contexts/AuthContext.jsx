@@ -70,7 +70,6 @@ export const JWTProvider = ({ children }) => {
           });
 
           if (data.data) {
-            setIsLoggedIn(true);
             setUserSession(data.data);
             setDbUserId(data.data.Id);
           }

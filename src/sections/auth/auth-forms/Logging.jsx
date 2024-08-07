@@ -15,8 +15,10 @@ import useAuth from 'hooks/useAuth';
 import { userLogin } from 'store/reducers/auth';
 import MainCard from 'components/MainCard';
 import { Grid, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
 
 const LoggingIn = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const { setUserSession, setDbUserId, setIsLoggedIn } = useAuth();
@@ -43,7 +45,7 @@ const LoggingIn = () => {
         return navigate('/login-error?error=invalid-link');
       }
 
-      //decrypt the ip here
+      // decrypt the ip here
       const ip = decrypt(addr);
 
       const currentIp = await getIP();
@@ -51,7 +53,7 @@ const LoggingIn = () => {
         return navigate('/login-error?error=invalid-ip');
       }
 
-      //decrypt the expire time
+      // decrypt the expire time
       const expireTime = decrypt(expt);
 
       if (differenceInMinutes(new Date(), expireTime) > 1) {
@@ -67,8 +69,7 @@ const LoggingIn = () => {
         if (data.dealer) {
           setUserSession(data.dealer);
           setDbUserId(data.dealer.Id);
-          setSession(token);
-          userLogin(token);
+          dispatch(userLogin(token));
         }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
@@ -76,7 +77,7 @@ const LoggingIn = () => {
       }
     };
     confirmLogin();
-  }, [location, setSession, userLogin]);
+  }, [location, setSession, userLogin, setIsLoggedIn, dispatch]);
 
   return (
     <MainCard sx={{ height: '100vh' }}>
