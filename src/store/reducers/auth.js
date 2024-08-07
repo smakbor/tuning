@@ -36,6 +36,8 @@ const authSlice = createSlice({
 
       if (data) {
         state.isLoggedIn = true;
+      } else {
+        console.log('error');
       }
       // state.isInitialized = true;
       // state.userSession = userSession;
