@@ -31,25 +31,25 @@ const LoggingIn = () => {
       //token expire time
       const expt = new URLSearchParams(location.search).get('expt');
 
-      // if (!addr) {
-      //   return navigate('/login-error?error=invalid-ip');
-      // }
+      if (!addr) {
+        return navigate('/login-error?error=invalid-ip');
+      }
 
-      // if (!token) {
-      //   return navigate('/login-error?error=invalid-token');
-      // }
+      if (!token) {
+        return navigate('/login-error?error=invalid-token');
+      }
 
-      // if (!expt) {
-      //   return navigate('/login-error?error=invalid-link');
-      // }
+      if (!expt) {
+        return navigate('/login-error?error=invalid-link');
+      }
 
       //decrypt the ip here
       const ip = decrypt(addr);
 
-      // const currentIp = await getIP();
-      // if (ip !== currentIp.ip) {
-      //   return navigate('/login-error?error=invalid-ip');
-      // }
+      const currentIp = await getIP();
+      if (ip !== currentIp.ip) {
+        return navigate('/login-error?error=invalid-ip');
+      }
 
       //decrypt the expire time
       const expireTime = decrypt(expt);
