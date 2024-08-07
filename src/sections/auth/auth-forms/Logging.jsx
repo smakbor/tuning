@@ -26,12 +26,15 @@ const LoggingIn = () => {
   useEffect(() => {
     const confirmLogin = async () => {
       const token = new URLSearchParams(location.search).get('token');
+      console.log(token);
 
       //catch encryptedIp address
       const addr = new URLSearchParams(location.search).get('addr');
+      console.log(addr);
 
       //token expire time
       const expt = new URLSearchParams(location.search).get('expt');
+      console.log(expt);
 
       if (!addr) {
         return navigate('/login-error?error=invalid-ip');
@@ -49,6 +52,7 @@ const LoggingIn = () => {
       const ip = decrypt(addr);
 
       const currentIp = await getIP();
+      console.log(currentIp);
 
       // if (ip !== currentIp.ip) {
       //   return navigate('/login-error?error=invalid-ip');
@@ -64,6 +68,7 @@ const LoggingIn = () => {
         const { data } = await axios.get(`${baseURL}/Dealer/auth/confirm-login/${token}`, {
           withCredentials: true
         });
+        console.log(data);
         if (data.accessToken) {
           setSession(data.accessToken);
         }
