@@ -111,6 +111,6 @@ yarn.lock
 package-lock.json
 pnpm-lock.yaml
 
-src/api/baseURL.js
+# src/api/baseURL.js
 dist
 .vscode
