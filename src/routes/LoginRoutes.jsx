@@ -33,10 +33,6 @@ const LoginRoutes = {
           path: 'login',
           element: <AuthLogin />
         },
-        {
-          path: 'confirm-login',
-          element: <LoggingIn />
-        },
 
         {
           path: 'signup',
@@ -63,6 +59,10 @@ const LoginRoutes = {
     {
       path: 'confirm',
       element: <ConfirmEmail />
+    },
+    {
+      path: 'confirm-login',
+      element: <LoggingIn />
     }
   ]
 };
