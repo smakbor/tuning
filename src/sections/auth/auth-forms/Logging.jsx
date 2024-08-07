@@ -49,9 +49,10 @@ const LoggingIn = () => {
       const ip = decrypt(addr);
 
       const currentIp = await getIP();
-      if (ip !== currentIp.ip) {
-        return navigate('/login-error?error=invalid-ip');
-      }
+
+      // if (ip !== currentIp.ip) {
+      //   return navigate('/login-error?error=invalid-ip');
+      // }
 
       // decrypt the expire time
       const expireTime = decrypt(expt);
@@ -69,7 +70,7 @@ const LoggingIn = () => {
         if (data.dealer) {
           setUserSession(data.dealer);
           setDbUserId(data.dealer.Id);
-          dispatch(userLogin(token));
+          dispatch(userLogin(data));
         }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
