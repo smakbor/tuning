@@ -84,7 +84,7 @@ const LoggingIn = () => {
       }
     };
     confirmLogin();
-  }, [location, setSession, userLogin, dispatch]);
+  }, [location]);
 
   return (
     <MainCard sx={{ height: '100vh', background: 'black' }}>
