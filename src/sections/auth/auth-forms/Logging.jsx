@@ -78,7 +78,7 @@ const LoggingIn = () => {
           dispatch(userLogin(data));
         }
       } catch (error) {
-        // toastService.throwErrorToast(error.response?.data?.message);
+        toastService.throwErrorToast(error.response?.data?.message);
         console.log('hello');
         console.log(error);
       }
