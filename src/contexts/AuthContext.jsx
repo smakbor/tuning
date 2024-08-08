@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axiosServices from 'utils/axios';
 import { enqueueSnackbar } from 'notistack';
 import { useLocation, useNavigate } from 'react-router';
+import { baseURL } from 'api/baseURL';
 
 const verifyToken = (serviceToken) => {
   if (!serviceToken) {
@@ -62,7 +63,7 @@ export const JWTProvider = ({ children }) => {
           // && verifyToken(serviceToken)
         ) {
           setSession(serviceToken);
-          const { data } = await axios.get(`${baseUrl}/Dealer/profile`, {
+          const { data } = await axios.get(`${baseURL}/Dealer/profile`, {
             headers: {
               Authorization: `Bearer ${token}`
             },
