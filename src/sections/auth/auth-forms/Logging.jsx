@@ -76,7 +76,6 @@ const LoggingIn = () => {
           setUserSession(data.dealer);
           setDbUserId(data.dealer.Id);
           dispatch(userLogin(data));
-          navigate('/dashboard');
         }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
@@ -84,7 +83,7 @@ const LoggingIn = () => {
       }
     };
     confirmLogin();
-  }, [location]);
+  }, [location, setSession, userLogin, dispatch]);
 
   return (
     <MainCard sx={{ height: '100vh', background: 'black' }}>
