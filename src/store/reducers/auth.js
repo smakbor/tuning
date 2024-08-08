@@ -36,6 +36,7 @@ const authSlice = createSlice({
 
       if (data) {
         state.isLoggedIn = true;
+        state.token = data.accessToken;
       } else {
         console.log('error');
       }

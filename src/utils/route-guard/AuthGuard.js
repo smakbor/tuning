@@ -9,6 +9,7 @@ import useAuth from 'hooks/useAuth';
 
 const AuthGuard = ({ children }) => {
   const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
   const navigate = useNavigate();
   const location = useLocation();
 
