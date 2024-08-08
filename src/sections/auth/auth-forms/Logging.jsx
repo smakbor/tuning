@@ -69,14 +69,14 @@ const LoggingIn = () => {
           withCredentials: true
         });
         console.log(data);
-        if (data?.accessToken) {
-          setSession(data.accessToken);
-        }
-        if (data?.dealer) {
-          setUserSession(data.dealer);
-          setDbUserId(data.dealer.Id);
-          dispatch(userLogin(data));
-        }
+        // if (data?.accessToken) {
+        //   setSession(data.accessToken);
+        // }
+        // if (data?.dealer) {
+        //   setUserSession(data.dealer);
+        //   setDbUserId(data.dealer.Id);
+        //   dispatch(userLogin(data));
+        // }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
         console.log('hello');
