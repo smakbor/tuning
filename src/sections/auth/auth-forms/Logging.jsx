@@ -80,7 +80,7 @@ const LoggingIn = () => {
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
         console.log('hello');
-        console.log(error);
+        // console.log(error);
       }
     };
     confirmLogin();
