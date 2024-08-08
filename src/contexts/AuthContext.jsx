@@ -65,7 +65,7 @@ export const JWTProvider = ({ children }) => {
           setSession(serviceToken);
           const { data } = await axios.get(`${baseURL}/Dealer/profile`, {
             headers: {
-              Authorization: `Bearer ${token}`
+              Authorization: `Bearer ${serviceToken}`
             },
             withCredentials: true
           });
