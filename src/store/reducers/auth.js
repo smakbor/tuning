@@ -9,10 +9,10 @@ export const initialState = {
   isLoggedIn: false,
   isInitialized: false,
   user: null,
-  token: null,
-  permissions: {},
-  branch: null,
-  settingData: {}
+  token: null
+  // permissions: {},
+  // branch: null,
+  // settingData: {}
 };
 
 //
@@ -35,6 +35,7 @@ const authSlice = createSlice({
       // const decodedToken = jwtDecode(accessToken);
 
       if (data) {
+        state.isInitialized = true;
         state.isLoggedIn = true;
         state.token = data.accessToken;
       } else {
