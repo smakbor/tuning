@@ -59,11 +59,11 @@ const LoggingIn = () => {
       // }
 
       // decrypt the expire time
-      const expireTime = decrypt(expt);
+      // const expireTime = decrypt(expt);
 
-      if (differenceInMinutes(new Date(), expireTime) > 1) {
-        return navigate('/login-error?error=token-expired');
-      }
+      // if (differenceInMinutes(new Date(), expireTime.) > 1) {
+      //   return navigate('/login-error?error=token-expired');
+      // }
       try {
         const { data } = await axios.get(`${baseURL}/Dealer/auth/confirm-login/${token}`, {
           withCredentials: true
