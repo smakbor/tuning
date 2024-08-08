@@ -46,7 +46,7 @@ const JWTContext = createContext(null);
 export const JWTProvider = ({ children }) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [userSession, setUserSession] = useState(null);
   const [dbUserId, setDbUserId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -58,11 +58,7 @@ export const JWTProvider = ({ children }) => {
     const init = async () => {
       try {
         const serviceToken = window.localStorage.getItem('accessToken');
-        if (
-          serviceToken
-          // && verifyToken(serviceToken)
-        ) {
-          setSession(serviceToken);
+        if (serviceToken) {
           const { data } = await axios.get(`${baseURL}/Dealer/profile`, {
             headers: {
               Authorization: `Bearer ${serviceToken}`
