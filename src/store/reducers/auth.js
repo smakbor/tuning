@@ -61,9 +61,7 @@ const authSlice = createSlice({
 
     userLogout: (state) => {
       state.isLoggedIn = false;
-      state.user = null;
       state.isInitialized = true;
-      state.branch = null;
       setSession(null);
     },
     updateAvatar: (state, { payload }) => {

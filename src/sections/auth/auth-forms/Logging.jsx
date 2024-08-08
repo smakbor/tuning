@@ -79,6 +79,7 @@ const LoggingIn = () => {
         }
       } catch (error) {
         // toastService.throwErrorToast(error.response?.data?.message);
+        console.log('hello');
         console.log(error);
       }
     };
@@ -86,10 +87,10 @@ const LoggingIn = () => {
   }, [location, setSession, userLogin, dispatch]);
 
   return (
-    <MainCard sx={{ height: '100vh' }}>
+    <MainCard sx={{ height: '100vh', background: 'black' }}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item>
-          <MainCard sx={{ height: '40vh', width: '40vw', marginTop: '10rem', textAlign: 'center', border: '1px solid white' }}>
+          <MainCard sx={{ height: '20vh', width: '40vw', marginTop: '10rem', textAlign: 'center', border: '1px solid white' }}>
             <Typography variant="h3" color="gray">
               Please wait you are Logging In...
             </Typography>
