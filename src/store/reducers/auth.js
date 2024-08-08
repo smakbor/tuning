@@ -2,7 +2,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { setSession } from 'contexts/AuthContext';
 import jwtDecode from 'jwt-decode';
-import localStorageService from 'utils/localStorageService';
 
 // initial state
 export const initialState = {
@@ -31,13 +30,12 @@ const authSlice = createSlice({
   reducers: {
     userLogin: (state, action) => {
       const data = action.payload;
-      console.log(data);
       // const decodedToken = jwtDecode(accessToken);
-
       if (data) {
         state.isInitialized = true;
         state.isLoggedIn = true;
         state.token = data.accessToken;
+        state.user = data.dealer;
       } else {
         console.log('error');
       }

@@ -8,7 +8,8 @@ export const authApi = api.injectEndpoints({
         return {
           url: `Dealer/auth/login`,
           method: 'POST',
-          body
+          body,
+          credentials: 'include'
         };
       }
       // async onQueryStarted(_arg, { dispatch, queryFulfilled }) {

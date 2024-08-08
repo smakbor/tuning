@@ -47,11 +47,9 @@ export const JWTProvider = ({ children }) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
-  const [userSession, setUserSession] = useState(null);
   const [dbUserId, setDbUserId] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -65,10 +63,9 @@ export const JWTProvider = ({ children }) => {
             },
             withCredentials: true
           });
-
           if (data.data) {
-            setUserSession(data.data);
             setDbUserId(data.data.Id);
+            dispatch(userLogin({ dealer: data.data, accessToken: serviceToken }));
           }
         } else {
           setSession(null);
@@ -100,7 +97,7 @@ export const JWTProvider = ({ children }) => {
     };
 
     init();
-  }, []);
+  }, [location]);
 
   const logout = () => {
     dispatch(userLogout());
@@ -115,7 +112,7 @@ export const JWTProvider = ({ children }) => {
   // }
 
   return (
-    <JWTContext.Provider value={{ ...auth, logout, resetPassword, updateProfile, userSession, dbUserId }}>{children}</JWTContext.Provider>
+    <JWTContext.Provider value={{ ...auth, logout, resetPassword, updateProfile, dbUserId, setDbUserId }}>{children}</JWTContext.Provider>
   );
 };
 

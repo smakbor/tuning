@@ -8,13 +8,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // ==============================|| AUTH GUARD ||============================== //
 
 const AuthGuard = ({ children }) => {
-  const { isLoggedIn } = useAuth();
-  console.log(isLoggedIn);
+  const { isLoggedIn, isInitialized } = useAuth();
+
   const navigate = useNavigate();
   const location = useLocation();
-
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && isInitialized) {
       navigate('/auth/login', {
         state: {
           from: location.pathname
@@ -23,7 +22,7 @@ const AuthGuard = ({ children }) => {
       });
       navigate('/auth/login', { replace: true });
     }
-  }, [isLoggedIn, navigate, location]);
+  }, [isLoggedIn, isInitialized, location]);
 
   return children;
 };
